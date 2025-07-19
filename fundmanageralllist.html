@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Fund Managers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+  <style>
+    .star-filled {
+      color: #3b82f6;
+    }
+
+    .manager-row {
+      transition: all 0.2s ease;
+    }
+
+    .manager-row:hover {
+      background-color: #f9fafb;
+    }
+
+    .back-btn {
+      background: linear-gradient(135deg, #6b7280, #4b5563);
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(135deg, #4b5563, #374151);
+      transform: translateY(-1px);
+    }
+
+    .filter-btn {
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+    }
+
+    .filter-btn:not(.active) {
+      background: white;
+      color: #6b7280;
+      border: 1px solid #d1d5db;
+    }
+
+    .filter-btn:not(.active):hover {
+      background: #f9fafb;
+      color: #374151;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="bg-white rounded-lg shadow-sm mb-6">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center">
+            <a href="fundmanagerlist.html"
+              class="back-btn text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm mr-4">
+              ← Back
+            </a>
+            <h1 class="text-2xl font-semibold text-blue-600">All Fund Managers</h1>
+          </div>
+          <div class="text-sm text-gray-500">
+            Showing 12 fund managers
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-3">
+          <button onclick="filterManagers('all')" id="filter-all"
+            class="filter-btn active px-4 py-2 rounded-lg text-sm font-medium">
+            All Managers
+          </button>
+          <button onclick="filterManagers('senior')" id="filter-senior"
+            class="filter-btn px-4 py-2 rounded-lg text-sm font-medium">
+            Senior Managers
+          </button>
+          <button onclick="filterManagers('portfolio')" id="filter-portfolio"
+            class="filter-btn px-4 py-2 rounded-lg text-sm font-medium">
+            Portfolio Managers
+          </button>
+          <button onclick="filterManagers('cio')" id="filter-cio"
+            class="filter-btn px-4 py-2 rounded-lg text-sm font-medium">
+            Chief Officers
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fund Managers List -->
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+      <!-- Table Header -->
+      <div class="bg-gray-50 px-6 py-4">
+        <div class="grid grid-cols-12 gap-4 text-sm font-medium text-gray-600">
+          <div class="col-span-3">Fund Manager</div>
+          <div class="col-span-2">Designation</div>
+          <div class="col-span-1 text-center">Experience</div>
+          <div class="col-span-1 text-center">Funds</div>
+          <div class="col-span-2 text-center">Total AUM</div>
+          <div class="col-span-1 text-center">Avg Returns</div>
+          <div class="col-span-1 text-center">Rating</div>
+          <div class="col-span-1 text-center">Action</div>
+        </div>
+      </div>
+
+      <!-- Fund Manager Rows -->
+      <div class="divide-y divide-gray-200" id="managers-grid">
+        <!-- Fund Manager Row 1 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="senior">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-blue-600 font-semibold text-lg">RK</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Rajeev Kumar</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA Finance, CFA</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Senior Fund Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">12 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">3</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹1,03,518 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">11.47%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">5</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 2 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="portfolio">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-purple-600 font-semibold text-lg">AS</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Anita Sharma</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Portfolio Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">8 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">2</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹18,500 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">18.81%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">4</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 3 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="cio">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-green-600 font-semibold text-lg">VG</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Vikram Gupta</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA, FRM</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Chief Investment Officer</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">15 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">5</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹45,000 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">23.04%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">3</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+        <!-- Fund Manager Row 4 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="senior">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-orange-600 font-semibold text-lg">PM</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Priya Mehta</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA Finance</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Senior Fund Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">10 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">4</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹32,000 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">14.23%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">4</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 5 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="portfolio">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-indigo-600 font-semibold text-lg">SK</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Suresh Kumar</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Portfolio Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">9 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">3</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹25,600 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">16.78%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">4</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 6 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="senior">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-pink-600 font-semibold text-lg">NT</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Neha Tiwari</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Senior Fund Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">11 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">2</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹41,200 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">12.89%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">5</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 7 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="cio">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-teal-600 font-semibold text-lg">AR</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Amit Raj</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA, FRM</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Chief Investment Officer</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">18 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">6</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹67,800 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">19.45%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">5</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 8 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="portfolio">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-yellow-600 font-semibold text-lg">RG</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Ravi Gupta</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA Finance</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Portfolio Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">7 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">2</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹15,400 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">21.67%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">4</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 9 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="senior">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-red-600 font-semibold text-lg">MS</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Manish Singh</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Senior Fund Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">13 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">3</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹38,900 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">15.34%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">4</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 10 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="portfolio">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-cyan-600 font-semibold text-lg">DK</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Deepak Kumar</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA Finance</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Portfolio Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">6 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">2</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹12,300 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">24.12%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">3</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 11 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="senior">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-lime-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-lime-600 font-semibold text-lg">SP</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Sanjay Patel</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Senior Fund Manager</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">14 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">4</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹52,700 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">13.78%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">5</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fund Manager Row 12 -->
+        <div class="manager-row px-6 py-4 transition-colors" data-category="cio">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-3">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-violet-100 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-violet-600 font-semibold text-lg">KS</span>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900">
+                    <a href="fundmanagerlist.html" class="hover:text-blue-600 transition-colors">Kavita Sharma</a>
+                  </div>
+                  <div class="text-xs text-gray-500">MBA, CFA, FRM</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2">
+              <span class="text-sm font-medium">Chief Investment Officer</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">16 Years</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium">7</span>
+            </div>
+            <div class="col-span-2 text-center">
+              <span class="text-sm font-medium">₹89,500 Cr</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="text-sm font-medium text-green-600">17.89%</span>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-sm font-bold mr-1">5</span>
+                <span class="star-filled text-sm">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <a href="fundmanagerlist.html" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="mt-8 text-center">
+      <a href="fundmanagerlist.html"
+        class="back-btn text-white px-6 py-3 rounded-lg font-medium shadow-sm inline-block">
+        ← Back to Fund Manager List
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function filterManagers(category) {
+      // Remove active class from all filter buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Add active class to clicked button
+      document.getElementById('filter-' + category).classList.add('active');
+
+      // Get all manager rows
+      const rows = document.querySelectorAll('.manager-row');
+
+      // Show/hide rows based on category
+      rows.forEach(row => {
+        if (category === 'all' || row.dataset.category === category) {
+          row.style.display = 'block';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      // Update count
+      const visibleRows = document.querySelectorAll('.manager-row[style="display: block"], .manager-row:not([style])');
+      const countText = category === 'all' ? 'Showing 12 fund managers' : `Showing ${visibleRows.length} fund managers`;
+      document.querySelector('.text-sm.text-gray-500').textContent = countText;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Fund Manager List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+  <style>
+    .star-filled {
+      color: #3b82f6;
+    }
+
+    .tab-active {
+      border-bottom: 3px solid #3b82f6;
+      color: #3b82f6;
+      font-weight: 600;
+    }
+
+    .tab-inactive {
+      color: #6b7280;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab-inactive:hover {
+      color: #374151;
+    }
+
+    .manager-card {
+      transition: all 0.3s ease;
+    }
+
+    .manager-card:hover {
+
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .view-all-btn {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      transition: all 0.2s ease;
+    }
+
+    .view-all-btn:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="bg-white rounded-lg shadow-sm mb-6">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+              <span class="text-blue-600 font-bold text-2xl">RK</span>
+            </div>
+            <div>
+              <h1 class="text-2xl font-semibold text-blue-600">Rajeev Kumar</h1>
+              <p class="text-gray-600">Senior Fund Manager</p>
+            </div>
+          </div>
+          <a href="fundmanageralllist.html"
+            class="view-all-btn text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm">
+            View All Managers
+          </a>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex border-b border-gray-200">
+          <button onclick="handleTabClick('schemes')" id="schemes-tab"
+            class="px-6 py-3 text-sm font-medium tab-active transition-colors duration-200 cursor-pointer">
+            Schemes
+          </button>
+          <button onclick="handleTabClick('overview')" id="overview-tab"
+            class="px-6 py-3 text-sm font-medium tab-inactive transition-colors duration-200 cursor-pointer">
+            Overview
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schemes Content -->
+    <div id="schemes-content" class="bg-white rounded-lg shadow-sm overflow-hidden">
+      <!-- Table Header -->
+      <div class="bg-gray-50 px-6 py-4">
+        <div class="grid grid-cols-12 gap-4 text-sm font-medium text-gray-600">
+          <div class="col-span-4">Fund Name</div>
+          <div class="col-span-1 text-center">Category</div>
+          <div class="col-span-1 text-center">NAV</div>
+          <div class="col-span-1 text-center">AUM (Cr)</div>
+          <div class="col-span-2 text-center">Returns (1Y/3Y/5Y)</div>
+          <div class="col-span-1 text-center">Rating</div>
+          <div class="col-span-1 text-center">Exp. Ratio</div>
+          <div class="col-span-1 text-center">Actions</div>
+        </div>
+      </div>
+
+      <!-- Fund Rows -->
+      <div class="divide-y divide-gray-200">
+        <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-4">
+              <div class="font-medium text-blue-600">
+                <a href="indifund.html" class="hover:text-blue-800 transition-colors">SBI Large Cap Fund-Reg(G)</a>
+              </div>
+              <div class="text-sm text-gray-500">Large Cap Equity</div>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Large Cap</span>
+            </div>
+            <div class="col-span-1 text-center font-medium">196.64</div>
+            <div class="col-span-1 text-center font-medium">₹79,717</div>
+            <div class="col-span-2 text-center">
+              <div class="flex justify-center space-x-2 text-sm">
+                <span class="text-green-600">9.29%</span>
+                <span class="text-green-600">11.45%</span>
+                <span class="text-green-600">13.67%</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-lg font-bold mr-1">5</span>
+                <span class="star-filled">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">1.51</div>
+            <div class="col-span-1 text-center">
+              <button
+                class="text-blue-600 hover:text-blue-800 text-sm font-medium px-3 py-1 border border-blue-600 rounded hover:bg-blue-50">
+                Invest
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-4">
+              <div class="font-medium text-blue-600">
+                <a href="indifund.html" class="hover:text-blue-800 transition-colors">SBI Bluechip Fund-Reg(G)</a>
+              </div>
+              <div class="text-sm text-gray-500">Large Cap Equity</div>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Large Cap</span>
+            </div>
+            <div class="col-span-1 text-center font-medium">89.45</div>
+            <div class="col-span-1 text-center font-medium">₹15,234</div>
+            <div class="col-span-2 text-center">
+              <div class="flex justify-center space-x-2 text-sm">
+                <span class="text-green-600">8.76%</span>
+                <span class="text-green-600">10.23%</span>
+                <span class="text-green-600">12.89%</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-lg font-bold mr-1">4</span>
+                <span class="star-filled">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">1.68</div>
+            <div class="col-span-1 text-center">
+              <button
+                class="text-blue-600 hover:text-blue-800 text-sm font-medium px-3 py-1 border border-blue-600 rounded hover:bg-blue-50">
+                Invest
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6 py-4 hover:bg-gray-50 transition-colors">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="col-span-4">
+              <div class="font-medium text-blue-600">
+                <a href="indifund.html" class="hover:text-blue-800 transition-colors">SBI Focused Equity Fund-Reg(G)</a>
+              </div>
+              <div class="text-sm text-gray-500">Focused Fund</div>
+            </div>
+            <div class="col-span-1 text-center">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Focused</span>
+            </div>
+            <div class="col-span-1 text-center font-medium">234.78</div>
+            <div class="col-span-1 text-center font-medium">₹8,567</div>
+            <div class="col-span-2 text-center">
+              <div class="flex justify-center space-x-2 text-sm">
+                <span class="text-green-600">14.32%</span>
+                <span class="text-green-600">16.78%</span>
+                <span class="text-green-600">18.45%</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">
+              <div class="flex justify-center items-center">
+                <span class="text-lg font-bold mr-1">5</span>
+                <span class="star-filled">★</span>
+              </div>
+            </div>
+            <div class="col-span-1 text-center">1.89</div>
+            <div class="col-span-1 text-center">
+              <button
+                class="text-blue-600 hover:text-blue-800 text-sm font-medium px-3 py-1 border border-blue-600 rounded hover:bg-blue-50">
+                Invest
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview Content -->
+    <div id="overview-content" class="hidden">
+      <div class="bg-white rounded-lg shadow-sm p-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Personal Information -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Personal Information</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Full Name:</span>
+                <span class="font-medium">Rajeev Kumar</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Designation:</span>
+                <span class="font-medium">Senior Fund Manager</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Experience:</span>
+                <span class="font-medium">12 Years</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Education:</span>
+                <span class="font-medium">MBA Finance, CFA</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Joined SBI:</span>
+                <span class="font-medium">April 2012</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Performance Metrics -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Performance Metrics</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Funds Managed:</span>
+                <span class="font-medium">3</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Total AUM:</span>
+                <span class="font-medium">₹1,03,518 Cr</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Average Returns:</span>
+                <span class="font-medium text-green-600">11.47%</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Best Performing Fund:</span>
+                <span class="font-medium">SBI Focused Equity Fund</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Investment Style:</span>
+                <span class="font-medium">Growth & Value</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Investment Philosophy -->
+        <div class="mt-8 pt-8 border-t border-gray-200">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Investment Philosophy</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Rajeev Kumar follows a disciplined approach to equity investing with a focus on identifying fundamentally
+            strong companies with sustainable competitive advantages. His investment strategy combines both growth and
+            value investing principles, emphasizing long-term wealth creation through careful stock selection and
+            portfolio diversification.
+          </p>
+        </div>
+
+        <!-- Awards & Recognition -->
+        <div class="mt-8 pt-8 border-t border-gray-200">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Awards & Recognition</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li>• Best Large Cap Fund Manager 2023 - Mutual Fund Awards</li>
+            <li>• Excellence in Equity Management 2022 - Investment Week</li>
+            <li>• Top Performer Award 2021 - SBI Mutual Fund</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleTabClick(tabName) {
+      // Remove active class from all tabs
+      document.querySelectorAll('[id$="-tab"]').forEach(tab => {
+        tab.classList.remove('tab-active');
+        tab.classList.add('tab-inactive');
+      });
+
+      // Add active class to clicked tab
+      document.getElementById(tabName + '-tab').classList.remove('tab-inactive');
+      document.getElementById(tabName + '-tab').classList.add('tab-active');
+
+      // Hide all content
+      document.getElementById('schemes-content').classList.add('hidden');
+      document.getElementById('overview-content').classList.add('hidden');
+
+      // Show selected content
+      document.getElementById(tabName + '-content').classList.remove('hidden');
+    }
+  </script>
+</body>
+
+</html>
