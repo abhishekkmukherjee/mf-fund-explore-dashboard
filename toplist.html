@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Performing Schemes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50">
+  <div class="max-w-4xl mx-auto bg-white shadow-lg">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 border-b border-gray-200">
+      <div class="flex items-center space-x-3">
+        <button class="p-1">
+          <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <h1 class="text-xl font-semibold text-gray-900">Top Performing Schemes</h1>
+      </div>
+      <button class="p-1">
+        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z">
+          </path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="p-4">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input type="text" id="searchInput"
+          class="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Search For Top Performing Schemes">
+      </div>
+    </div>
+
+    <!-- Mutual Funds List -->
+    <div class="divide-y divide-gray-100" id="fundsList">
+      <!-- SBI Mutual Fund -->
+      <div class="p-4 hover:bg-gray-50 cursor-pointer fund-item" data-name="SBI Mutual Fund">
+        <div class="flex justify-between items-start">
+          <div class="flex-1">
+            <h3 class="text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"><a
+                href="indifund.html" class="cursor-pointer">SBI Mutual Fund</a></h3>
+            <p class="text-sm text-gray-600 mt-1">AUM: 11,99,811 Cr (30 Jun 2025)</p>
+            <p class="text-sm text-gray-600">Schemes: 124</p>
+          </div>
+          <div class="ml-6 text-right">
+            <div class="grid grid-cols-5 gap-2 text-xs text-gray-500 mb-1">
+              <span>1Y</span>
+              <span>3Y</span>
+              <span>5Y</span>
+              <span>7Y</span>
+              <span>10Y</span>
+            </div>
+            <div class="grid grid-cols-5 gap-2 text-xs font-medium">
+              <span class="text-green-600">12.8%</span>
+              <span class="text-green-600">14.2%</span>
+              <span class="text-green-600">11.5%</span>
+              <span class="text-green-600">13.1%</span>
+              <span class="text-green-600">12.9%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ICICI Prudential Mutual Fund -->
+      <div class="p-4 hover:bg-gray-50 cursor-pointer fund-item" data-name="ICICI Prudential Mutual Fund">
+        <div class="flex justify-between items-start">
+          <div class="flex-1">
+            <h3 class="text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"><a
+                href="indifund.html" class="cursor-pointer">ICICI Prudential Mutual Fund</a></h3>
+            <p class="text-sm text-gray-600 mt-1">AUM: 10,28,285 Cr (30 Jun 2025)</p>
+            <p class="text-sm text-gray-600">Schemes: 141</p>
+          </div>
+          <div class="ml-6 text-right">
+            <div class="grid grid-cols-5 gap-2 text-xs text-gray-500 mb-1">
+              <span>1Y</span>
+              <span>3Y</span>
+              <span>5Y</span>
+              <span>7Y</span>
+              <span>10Y</span>
+            </div>
+            <div class="grid grid-cols-5 gap-2 text-xs font-medium">
+              <span class="text-green-600">15.3%</span>
+              <span class="text-green-600">16.1%</span>
+              <span class="text-green-600">13.4%</span>
+              <span class="text-green-600">14.7%</span>
+              <span class="text-green-600">13.8%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HDFC Mutual Fund -->
+      <div class="p-4 hover:bg-gray-50 cursor-pointer fund-item" data-name="HDFC Mutual Fund">
+        <div class="flex justify-between items-start">
+          <div class="flex-1">
+            <h3 class="text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"><a
+                href="indifund.html" class="cursor-pointer">HDFC Mutual Fund</a></h3>
+            <p class="text-sm text-gray-600 mt-1">AUM: 8,71,370 Cr (30 Jun 2025)</p>
+            <p class="text-sm text-gray-600">Schemes: 105</p>
+          </div>
+          <div class="ml-6 text-right">
+            <div class="grid grid-cols-5 gap-2 text-xs text-gray-500 mb-1">
+              <span>1Y</span>
+              <span>3Y</span>
+              <span>5Y</span>
+              <span>7Y</span>
+              <span>10Y</span>
+            </div>
+            <div class="grid grid-cols-5 gap-2 text-xs font-medium">
+              <span class="text-green-600">13.7%</span>
+              <span class="text-green-600">15.8%</span>
+              <span class="text-green-600">12.9%</span>
+              <span class="text-green-600">14.2%</span>
+              <span class="text-green-600">13.5%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nippon India Mutual Fund -->
+      <div class="p-4 hover:bg-gray-50 cursor-pointer fund-item" data-name="Nippon India Mutual Fund">
+        <div class="flex justify-between items-start">
+          <div class="flex-1">
+            <h3 class="text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"><a
+                href="indifund.html" class="cursor-pointer">Nippon India Mutual Fund</a></h3>
+            <p class="text-sm text-gray-600 mt-1">AUM: 6,50,378 Cr (30 Jun 2025)</p>
+            <p class="text-sm text-gray-600">Schemes: 111</p>
+          </div>
+          <div class="ml-6 text-right">
+            <div class="grid grid-cols-5 gap-2 text-xs text-gray-500 mb-1">
+              <span>1Y</span>
+              <span>3Y</span>
+              <span>5Y</span>
+              <span>7Y</span>
+              <span>10Y</span>
+            </div>
+            <div class="grid grid-cols-5 gap-2 text-xs font-medium">
+              <span class="text-green-600">14.6%</span>
+              <span class="text-green-600">13.9%</span>
+              <span class="text-green-600">11.8%</span>
+              <span class="text-green-600">12.4%</span>
+              <span class="text-green-600">12.1%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kotak Mahindra Mutual Fund -->
+      <div class="p-4 hover:bg-gray-50 cursor-pointer fund-item" data-name="Kotak Mahindra Mutual Fund">
+        <div class="flex justify-between items-start">
+          <div class="flex-1">
+            <h3 class="text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"><a
+                href="indifund.html" class="cursor-pointer">Kotak Mahindra Mutual Fund</a></h3>
+            <p class="text-sm text-gray-600 mt-1">AUM: 5,50,188 Cr (30 Jun 2025)</p>
+            <p class="text-sm text-gray-600">Schemes: 102</p>
+          </div>
+          <div class="ml-6 text-right">
+            <div class="grid grid-cols-5 gap-2 text-xs text-gray-500 mb-1">
+              <span>1Y</span>
+              <span>3Y</span>
+              <span>5Y</span>
+              <span>7Y</span>
+              <span>10Y</span>
+            </div>
+            <div class="grid grid-cols-5 gap-2 text-xs font-medium">
+              <span class="text-green-600">16.2%</span>
+              <span class="text-green-600">17.1%</span>
+              <span class="text-green-600">14.3%</span>
+              <span class="text-green-600">15.6%</span>
+              <span class="text-green-600">14.8%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aditya Birla Sun Life Mutual Fund -->
+      <div class="p-4 hover:bg-gray-50 cursor-pointer fund-item" data-name="Aditya Birla Sun Life Mutual Fund">
+        <div class="flex justify-between items-start">
+          <div class="flex-1">
+            <h3 class="text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"><a
+                href="indifund.html" class="cursor-pointer">Aditya Birla Sun Life Mutual Fund</a></h3>
+            <p class="text-sm text-gray-600 mt-1">AUM: 4,14,315 Cr (30 Jun 2025)</p>
+            <p class="text-sm text-gray-600">Schemes: 109</p>
+          </div>
+          <div class="ml-6 text-right">
+            <div class="grid grid-cols-5 gap-2 text-xs text-gray-500 mb-1">
+              <span>1Y</span>
+              <span>3Y</span>
+              <span>5Y</span>
+              <span>7Y</span>
+              <span>10Y</span>
+            </div>
+            <div class="grid grid-cols-5 gap-2 text-xs font-medium">
+              <span class="text-green-600">11.9%</span>
+              <span class="text-green-600">13.7%</span>
+              <span class="text-green-600">10.8%</span>
+              <span class="text-green-600">12.3%</span>
+              <span class="text-green-600">11.7%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UTI Mutual Fund -->
+      <div class="p-4 hover:bg-gray-50 cursor-pointer fund-item" data-name="UTI Mutual Fund">
+        <div class="flex justify-between items-start">
+          <div class="flex-1">
+            <h3 class="text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"><a
+                href="indifund.html" class="cursor-pointer">UTI Mutual Fund</a></h3>
+            <p class="text-sm text-gray-600 mt-1">AUM: 3,85,920 Cr (30 Jun 2025)</p>
+            <p class="text-sm text-gray-600">Schemes: 98</p>
+          </div>
+          <div class="ml-6 text-right">
+            <div class="grid grid-cols-5 gap-2 text-xs text-gray-500 mb-1">
+              <span>1Y</span>
+              <span>3Y</span>
+              <span>5Y</span>
+              <span>7Y</span>
+              <span>10Y</span>
+            </div>
+            <div class="grid grid-cols-5 gap-2 text-xs font-medium">
+              <span class="text-green-600">13.4%</span>
+              <span class="text-green-600">14.6%</span>
+              <span class="text-green-600">12.2%</span>
+              <span class="text-green-600">13.8%</span>
+              <span class="text-green-600">13.1%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function (e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const fundItems = document.querySelectorAll('.fund-item');
+
+      fundItems.forEach(item => {
+        const fundName = item.getAttribute('data-name').toLowerCase();
+        if (fundName.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+
+    // Add click handlers for fund items
+    document.querySelectorAll('.fund-item').forEach(item => {
+      item.addEventListener('click', function (e) {
+        // Check if the click was on a link, if so, don't handle it here
+        if (e.target.tagName === 'A' || e.target.closest('a')) {
+          return;
+        }
+
+        const fundName = this.getAttribute('data-name');
+        console.log('Selected fund:', fundName);
+        // Navigate to fund details page
+        window.location.href = 'indifund.html';
+      });
+    });
+  </script>
+</body>
+
+</html>
