@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutual Fund Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .performance-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 20px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .performance-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      z-index: 0;
+    }
+
+    .performance-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .amc-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .amc-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .theme-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .theme-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .risk-badge {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .section-title {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+
+    <!-- Top Performing Schemes Section -->
+    <div class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 section-title">Top Performing Schemes</h2>
+        <button class="text-blue-600 hover:text-blue-800 font-medium transition-colors">View All ></button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <!-- Scheme 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+              <span class="text-red-600 font-bold text-lg">I</span>
+            </div>
+            <span class="text-green-600 font-bold text-lg">▲ 20.0% p.a</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2"><a href="indifund.html"
+              class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">ICICI Pru Nifty Financial
+              Services Ex-Bank ETF</a></h3>
+          <p class="text-sm text-gray-600 mb-2">(1 Year)</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>Benchmark - Category</span>
+            <span class="text-green-600">▲ 3.2%</span>
+          </div>
+          <div class="text-sm text-gray-600">ETFs - Index</div>
+          <div class="flex justify-between items-center mt-4">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 1000</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs risk-badge">Very High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scheme 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+              <span class="text-blue-600 font-bold text-lg">I</span>
+            </div>
+            <span class="text-green-600 font-bold text-lg">▲ 13.4% p.a</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2"><a href="indifund.html"
+              class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Invesco India Large & Mid Cap
+              Fund(G)</a></h3>
+          <p class="text-sm text-gray-600 mb-2">(1 Year)</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>Benchmark - Category</span>
+            <span class="text-green-600">▲ 3.2%</span>
+          </div>
+          <div class="text-sm text-gray-600">Equity - Large & Mid Cap Fund</div>
+          <div class="flex justify-between items-center mt-4">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 1000</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs risk-badge">Very High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scheme 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+              <span class="text-gray-600 font-bold text-lg">F</span>
+            </div>
+            <span class="text-green-600 font-bold text-lg">▲ 7.2% p.a</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2"><a href="indifund.html"
+              class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Franklin India Liquid
+              Fund-Super Inst(G)</a></h3>
+          <p class="text-sm text-gray-600 mb-2">(1 Year)</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>Benchmark - Category</span>
+            <span class="text-green-600">▲ 7.1%</span>
+          </div>
+          <div class="text-sm text-gray-600">Debt - Liquid Fund</div>
+          <div class="flex justify-between items-center mt-4">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 10000</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded text-xs">Low to Moderate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scheme 4 - New -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+              <span class="text-purple-600 font-bold text-lg">A</span>
+            </div>
+            <span class="text-green-600 font-bold text-lg">▲ 18.5% p.a</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2"><a href="indifund.html"
+              class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Axis Small Cap Fund(G)</a></h3>
+          <p class="text-sm text-gray-600 mb-2">(1 Year)</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>Benchmark - Category</span>
+            <span class="text-green-600">▲ 4.8%</span>
+          </div>
+          <div class="text-sm text-gray-600">Equity - Small Cap Fund</div>
+          <div class="flex justify-between items-center mt-4">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 500</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs risk-badge">Very High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scheme 5 - New -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+              <span class="text-green-600 font-bold text-lg">H</span>
+            </div>
+            <span class="text-green-600 font-bold text-lg">▲ 15.8% p.a</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2"><a href="indifund.html"
+              class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">HDFC Flexi Cap Fund(G)</a></h3>
+          <p class="text-sm text-gray-600 mb-2">(1 Year)</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>Benchmark - Category</span>
+            <span class="text-green-600">▲ 2.9%</span>
+          </div>
+          <div class="text-sm text-gray-600">Equity - Flexi Cap Fund</div>
+          <div class="flex justify-between items-center mt-4">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 1000</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs">High</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mutual Fund Classes Section -->
+    <div class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 section-title">Mutual Fund Classes</h2>
+        <button class="text-blue-600 hover:text-blue-800 font-medium transition-colors">View All ></button>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex space-x-8 mb-6">
+          <button class="tab-button text-gray-800 font-semibold pb-2 border-b-2 border-blue-600"
+            data-tab="equity">Equity</button>
+          <button class="tab-button text-gray-600 pb-2 hover:text-gray-800" data-tab="debt">Debt</button>
+          <button class="tab-button text-gray-600 pb-2 hover:text-gray-800" data-tab="hybrid">Hybrid</button>
+          <button class="tab-button text-gray-600 pb-2 hover:text-gray-800" data-tab="other">Other</button>
+        </div>
+
+        <div id="tab-content">
+          <!-- Equity Tab Content -->
+          <div id="equity-content" class="tab-content">
+            <h3 class="text-lg font-semibold text-gray-800 mb-6">Top Categories and Fund in Equity (3 Years)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Sector Funds - Energy & Power -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Sector Funds - Energy & Power</h4>
+                  <span class="text-green-600 font-bold">▲ 31.0%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-red-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-red-600 text-xs">N</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Nippon India Power
+                          & Infra Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 35.1%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-blue-600 text-xs">D</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">DSP Natural Res &
+                          New Energy Fund-Reg(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 24.3%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sector Funds - Infrastructure -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Sector Funds - Infrastructure</h4>
+                  <span class="text-green-600 font-bold">▲ 30.2%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-red-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-red-600 text-xs">I</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">ICICI Pru
+                          Infrastructure Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 35.0%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-green-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-green-600 text-xs">H</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">HDFC Infrastructure
+                          Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 34.5%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mid Cap Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Mid Cap Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 25.9%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-yellow-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-yellow-600 text-xs">M</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Motilal Oswal
+                          Midcap Fund-Reg(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 32.6%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-blue-600 text-xs">I</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Invesco India
+                          Midcap Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 31.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Debt Tab Content -->
+          <div id="debt-content" class="tab-content hidden">
+            <h3 class="text-lg font-semibold text-gray-800 mb-6">Top Categories and Fund in Debt (3 Years)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Liquid Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Liquid Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 7.2%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-gray-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-gray-600 text-xs">F</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Franklin India
+                          Liquid Fund-Super Inst(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 7.2%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-blue-600 text-xs">S</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">SBI Liquid
+                          Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 7.0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Corporate Bond Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Corporate Bond Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 8.5%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-green-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-green-600 text-xs">H</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">HDFC Corporate Bond
+                          Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 8.8%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-red-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-red-600 text-xs">I</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">ICICI Pru Corporate
+                          Bond Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 8.3%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Government Securities Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Government Securities Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 6.8%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-blue-600 text-xs">S</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">SBI Magnum Gilt
+                          Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 7.1%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-purple-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-purple-600 text-xs">A</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Axis Gilt
+                          Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 6.5%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hybrid Tab Content -->
+          <div id="hybrid-content" class="tab-content hidden">
+            <h3 class="text-lg font-semibold text-gray-800 mb-6">Top Categories and Fund in Hybrid (3 Years)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Aggressive Hybrid Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Aggressive Hybrid Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 15.2%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-red-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-red-600 text-xs">I</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">ICICI Pru Equity &
+                          Debt Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 16.8%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-green-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-green-600 text-xs">H</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">HDFC Hybrid Equity
+                          Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 15.5%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conservative Hybrid Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Conservative Hybrid Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 9.8%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-blue-600 text-xs">S</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">SBI Conservative
+                          Hybrid Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 10.2%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-purple-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-purple-600 text-xs">A</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Axis Conservative
+                          Hybrid Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 9.5%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Balanced Advantage Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Balanced Advantage Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 12.5%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-green-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-green-600 text-xs">H</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">HDFC Balanced
+                          Advantage Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 13.2%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-red-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-red-600 text-xs">I</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">ICICI Pru Balanced
+                          Advantage Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 12.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Tab Content -->
+          <div id="other-content" class="tab-content hidden">
+            <h3 class="text-lg font-semibold text-gray-800 mb-6">Top Categories and Fund in Other (3 Years)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Gold ETF -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Gold ETF</h4>
+                  <span class="text-green-600 font-bold">▲ 11.5%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-yellow-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-yellow-600 text-xs">N</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Nippon India Gold
+                          ETF</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 11.8%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-blue-600 text-xs">S</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">SBI Gold
+                          ETF</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 11.2%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Index Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">Index Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 14.8%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-red-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-red-600 text-xs">I</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">ICICI Pru Nifty
+                          Index Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 15.2%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-green-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-green-600 text-xs">H</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">HDFC Index Fund -
+                          Nifty 50 Plan(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 14.5%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- International Fund -->
+              <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="font-semibold text-gray-800">International Fund</h4>
+                  <span class="text-green-600 font-bold">▲ 18.2%</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-purple-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-purple-600 text-xs">M</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Motilal Oswal
+                          Nasdaq 100 ETF</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 19.5%</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                      <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                        <span class="text-blue-600 text-xs">I</span>
+                      </div>
+                      <span class="text-sm"><a href="indifund.html"
+                          class="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">Invesco India -
+                          Global Equity Income Fund(G)</a></span>
+                    </div>
+                    <span class="text-green-600 text-sm font-semibold">▲ 17.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NFO Section -->
+    <div class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 section-title">New Fund Offers (NFO)</h2>
+        <button class="text-blue-600 hover:text-blue-800 font-medium transition-colors">View All ></button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- NFO 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-green-500">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+              <span class="text-green-600 font-bold text-lg">A</span>
+            </div>
+            <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs font-semibold">Open</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Axis Digital India Fund</h3>
+          <p class="text-sm text-gray-600 mb-4">Technology & Digital Innovation Focus</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>NFO Period</span>
+            <span class="font-semibold">15 Jul - 29 Jul 2025</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 1000</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs">Very High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NFO 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+              <span class="text-blue-600 font-bold text-lg">S</span>
+            </div>
+            <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-semibold">Open</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">SBI Healthcare Fund</h3>
+          <p class="text-sm text-gray-600 mb-4">Healthcare & Pharmaceuticals</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>NFO Period</span>
+            <span class="font-semibold">20 Jul - 03 Aug 2025</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 500</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs">Very High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NFO 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border-l-4 border-purple-500">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+              <span class="text-purple-600 font-bold text-lg">H</span>
+            </div>
+            <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs font-semibold">Closing Soon</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">HDFC ESG Fund</h3>
+          <p class="text-sm text-gray-600 mb-4">Environmental, Social & Governance</p>
+          <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+            <span>NFO Period</span>
+            <span class="font-semibold">10 Jul - 22 Jul 2025</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-sm text-gray-600">Min. Investment</p>
+              <p class="font-semibold">₹ 1000</p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Risk Rating</p>
+              <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs">Very High</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top AMCs Section -->
+    <div class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 section-title">Top AMCs</h2>
+        <button class="text-blue-600 hover:text-blue-800 font-medium transition-colors">View All ></button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <!-- AMC 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 amc-card text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-blue-600 font-bold text-2xl">S</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">SBI Mutual Fund</h3>
+          <div class="text-sm text-gray-600 mb-2">
+            <p>AUM: 11,99,811 Cr.</p>
+            <p>Schemes: 124</p>
+          </div>
+          <p class="text-xs text-gray-500">(as on 30 Jun 2025)</p>
+        </div>
+
+        <!-- AMC 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 amc-card text-center">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-red-600 font-bold text-2xl">I</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">ICICI Prudential Mutual Fund</h3>
+          <div class="text-sm text-gray-600 mb-2">
+            <p>AUM: 10,28,285 Cr.</p>
+            <p>Schemes: 141</p>
+          </div>
+          <p class="text-xs text-gray-500">(as on 30 Jun 2025)</p>
+        </div>
+
+        <!-- AMC 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 amc-card text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-green-600 font-bold text-2xl">H</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">HDFC Mutual Fund</h3>
+          <div class="text-sm text-gray-600 mb-2">
+            <p>AUM: 8,71,370 Cr.</p>
+            <p>Schemes: 105</p>
+          </div>
+          <p class="text-xs text-gray-500">(as on 30 Jun 2025)</p>
+        </div>
+
+        <!-- AMC 4 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 amc-card text-center">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-purple-600 font-bold text-2xl">N</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Nippon India Mutual Fund</h3>
+          <div class="text-sm text-gray-600 mb-2">
+            <p>AUM: 6,50,378 Cr.</p>
+            <p>Schemes: 111</p>
+          </div>
+          <p class="text-xs text-gray-500">(as on 30 Jun 2025)</p>
+        </div>
+
+        <!-- AMC 5 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 amc-card text-center">
+          <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-indigo-600 font-bold text-2xl">K</span>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Kotak Mahindra Mutual Fund</h3>
+          <div class="text-sm text-gray-600 mb-2">
+            <p>AUM: 5,50,188 Cr.</p>
+            <p>Schemes: 108</p>
+          </div>
+          <p class="text-xs text-gray-500">(as on 30 Jun 2025)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Fund Managers Section -->
+    <div class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 section-title">Top Fund Managers</h2>
+        <button class="text-blue-600 hover:text-blue-800 font-medium transition-colors">View All ></button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Manager 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-center mb-4">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-white font-bold text-xl">MB</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Manish Banthia</h3>
+          </div>
+          <div class="text-sm text-gray-600 mb-4">
+            <p>AUM Managed: 3,90,726 Cr.</p>
+          </div>
+          <div class="border-t pt-4">
+            <p class="text-sm text-gray-600 mb-2">Top Performing Scheme</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="w-6 h-6 bg-red-100 rounded mr-2 flex items-center justify-center">
+                  <span class="text-red-600 text-xs">I</span>
+                </div>
+                <span class="text-sm font-medium">ICICI Pru Business Cycle Fund(G)</span>
+              </div>
+              <span class="text-green-600 text-sm font-semibold">▲ 25.3%</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">3y Return %</p>
+          </div>
+        </div>
+
+        <!-- Manager 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-center mb-4">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-white font-bold text-xl">RS</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Raviprakash Sharma</h3>
+          </div>
+          <div class="text-sm text-gray-600 mb-4">
+            <p>AUM Managed: 3,50,554 Cr.</p>
+          </div>
+          <div class="border-t pt-4">
+            <p class="text-sm text-gray-600 mb-2">Top Performing Scheme</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="w-6 h-6 bg-blue-100 rounded mr-2 flex items-center justify-center">
+                  <span class="text-blue-600 text-xs">S</span>
+                </div>
+                <span class="text-sm font-medium">SBI BSE Sensex Next 50 ETF</span>
+              </div>
+              <span class="text-green-600 text-sm font-semibold">▲ 24.3%</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">3y Return %</p>
+          </div>
+        </div>
+
+        <!-- Manager 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-center mb-4">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-white font-bold text-xl">PK</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Prashant Khemka</h3>
+          </div>
+          <div class="text-sm text-gray-600 mb-4">
+            <p>AUM Managed: 2,85,334 Cr.</p>
+          </div>
+          <div class="border-t pt-4">
+            <p class="text-sm text-gray-600 mb-2">Top Performing Scheme</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded mr-2 flex items-center justify-center">
+                  <span class="text-green-600 text-xs">H</span>
+                </div>
+                <span class="text-sm font-medium">HDFC Top 100 Fund(G)</span>
+              </div>
+              <span class="text-green-600 text-sm font-semibold">▲ 22.8%</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">3y Return %</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Investment Themes Section -->
+    <div class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 section-title">Investment Themes</h2>
+        <button class="text-blue-600 hover:text-blue-800 font-medium transition-colors">View All ></button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Theme 1 -->
+        <div class="theme-card text-white p-6 text-center">
+          <div class="mb-4">
+            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-white font-bold text-xl">🚀</span>
+            </div>
+            <h3 class="font-semibold text-lg">Technology</h3>
+          </div>
+          <p class="text-sm opacity-90 mb-4">AI, Digital Transformation, Cloud Computing</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm">15 Schemes</span>
+            <span class="text-sm font-semibold">▲ 28.5%</span>
+          </div>
+        </div>
+
+        <!-- Theme 2 -->
+        <div
+          class="bg-gradient-to-br from-green-400 to-blue-600 rounded-2xl text-white p-6 text-center hover:scale-105 transition-transform">
+          <div class="mb-4">
+            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-white font-bold text-xl">🏥</span>
+            </div>
+            <h3 class="font-semibold text-lg">Healthcare</h3>
+          </div>
+          <p class="text-sm opacity-90 mb-4">Pharmaceuticals, Biotechnology, Medical Devices</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm">12 Schemes</span>
+            <span class="text-sm font-semibold">▲ 22.3%</span>
+          </div>
+        </div>
+
+        <!-- Theme 3 -->
+        <div
+          class="bg-gradient-to-br from-yellow-400 to-orange-600 rounded-2xl text-white p-6 text-center hover:scale-105 transition-transform">
+          <div class="mb-4">
+            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-white font-bold text-xl">🌱</span>
+            </div>
+            <h3 class="font-semibold text-lg">ESG</h3>
+          </div>
+          <p class="text-sm opacity-90 mb-4">Environmental, Social, Governance</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm">8 Schemes</span>
+            <span class="text-sm font-semibold">▲ 18.7%</span>
+          </div>
+        </div>
+
+        <!-- Theme 4 -->
+        <div
+          class="bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl text-white p-6 text-center hover:scale-105 transition-transform">
+          <div class="mb-4">
+            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-white font-bold text-xl">⚡</span>
+            </div>
+            <h3 class="font-semibold text-lg">Infrastructure</h3>
+          </div>
+          <p class="text-sm opacity-90 mb-4">Roads, Railways, Power, Utilities</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm">10 Schemes</span>
+            <span class="text-sm font-semibold">▲ 30.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      // Tab functionality for Mutual Fund Classes
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+          button.addEventListener('click', function () {
+            const targetTab = this.getAttribute('data-tab');
+
+            // Remove active classes from all buttons
+            tabButtons.forEach(btn => {
+              btn.classList.remove('text-gray-800', 'font-semibold', 'border-b-2', 'border-blue-600');
+              btn.classList.add('text-gray-600');
+            });
+
+            // Add active classes to clicked button
+            this.classList.remove('text-gray-600');
+            this.classList.add('text-gray-800', 'font-semibold', 'border-b-2', 'border-blue-600');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+              content.classList.add('hidden');
+            });
+
+            // Show target tab content
+            const targetContent = document.getElementById(targetTab + '-content');
+            if (targetContent) {
+              targetContent.classList.remove('hidden');
+            }
+          });
+        });
+      });
+    </script>
+</body>
+
+</html>

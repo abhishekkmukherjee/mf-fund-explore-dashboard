@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICICI Pru Nifty Financial Services Ex-Bank ETF - Fund Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .tab-active {
+      border-bottom: 3px solid #3b82f6;
+      color: #3b82f6;
+      font-weight: 600;
+      background-color: #eff6ff;
+    }
+
+    .tab-inactive {
+      color: #6b7280;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab-inactive:hover {
+      color: #374151;
+      background-color: #f9fafb;
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+      height: 8px;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+
+    <!-- Fund Header -->
+    <div class="section-card mb-8 p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-800 mb-2">ICICI Pru Nifty Financial Services Ex-Bank ETF</h1>
+          <p class="text-gray-600">ETFs - Index Fund</p>
+        </div>
+        <div class="text-right">
+          <div class="text-2xl font-bold text-green-600">₹30.53</div>
+          <div class="text-sm text-gray-500">Current NAV</div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex border-b border-gray-200 mt-6">
+        <button onclick="showTab('nav')" id="nav-tab"
+          class="px-6 py-3 text-sm font-medium tab-active transition-all duration-200">NAV</button>
+        <button onclick="showTab('info')" id="info-tab"
+          class="px-6 py-3 text-sm font-medium tab-inactive transition-all duration-200">Info</button>
+        <button onclick="showTab('related')" id="related-tab"
+          class="px-6 py-3 text-sm font-medium tab-inactive transition-all duration-200">Related Schemes</button>
+        <button onclick="showTab('performance')" id="performance-tab"
+          class="px-6 py-3 text-sm font-medium tab-inactive transition-all duration-200">Performance</button>
+        <button onclick="showTab('holding')" id="holding-tab"
+          class="px-6 py-3 text-sm font-medium tab-inactive transition-all duration-200">Holdings</button>
+        <button onclick="showTab('aum')" id="aum-tab"
+          class="px-6 py-3 text-sm font-medium tab-inactive transition-all duration-200">AUM</button>
+        <button onclick="showTab('managers')" id="managers-tab"
+          class="px-6 py-3 text-sm font-medium tab-inactive transition-all duration-200">Fund Managers</button>
+        <button onclick="showTab('ratios')" id="ratios-tab"
+          class="px-6 py-3 text-sm font-medium tab-inactive transition-all duration-200">Ratios</button>
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="tab-content">
+
+      <!-- NAV Tab -->
+      <div id="nav-content" class="tab-content">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">NAV Chart</h2>
+          <div class="bg-gray-50 rounded-lg p-4 mb-4">
+            <canvas id="navChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Tab -->
+      <div id="info-content" class="tab-content hidden">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">Key Parameters</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Type</h3>
+              <p class="text-gray-600">Exchange Traded Fund (ETF)</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Custodian</h3>
+              <p class="text-gray-600">ICICI Bank Limited</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Registrar</h3>
+              <p class="text-gray-600">KFin Technologies Limited</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Benchmark</h3>
+              <p class="text-gray-600">Nifty Financial Services Ex-Bank Index</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Launch Date</h3>
+              <p class="text-gray-600">15th March 2019</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Expense Ratio</h3>
+              <p class="text-gray-600">0.35% p.a.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Schemes Tab -->
+      <div id="related-content" class="tab-content hidden">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">Related Schemes</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-4 py-3 text-left text-sm font-medium text-gray-600">Scheme Name</th>
+                  <th class="px-4 py-3 text-center text-sm font-medium text-gray-600">NAV</th>
+                  <th class="px-4 py-3 text-center text-sm font-medium text-gray-600">1 Month Return %</th>
+                  <th class="px-4 py-3 text-center text-sm font-medium text-gray-600">3 Month Return %</th>
+                  <th class="px-4 py-3 text-center text-sm font-medium text-gray-600">1 Year Return %</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 text-blue-600 font-medium">ICICI Pru Nifty Financial Services Ex-Bank ETF</td>
+                  <td class="px-4 py-3 text-center font-medium">30.53</td>
+                  <td class="px-4 py-3 text-center text-green-600">2.45%</td>
+                  <td class="px-4 py-3 text-center text-green-600">8.32%</td>
+                  <td class="px-4 py-3 text-center text-green-600">20.15%</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 text-blue-600 font-medium">ICICI Pru Banking & Financial Services Fund</td>
+                  <td class="px-4 py-3 text-center font-medium">89.67</td>
+                  <td class="px-4 py-3 text-center text-green-600">1.89%</td>
+                  <td class="px-4 py-3 text-center text-green-600">7.45%</td>
+                  <td class="px-4 py-3 text-center text-green-600">18.92%</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 text-blue-600 font-medium">HDFC Banking & Financial Services Fund</td>
+                  <td class="px-4 py-3 text-center font-medium">45.23</td>
+                  <td class="px-4 py-3 text-center text-green-600">2.12%</td>
+                  <td class="px-4 py-3 text-center text-green-600">7.89%</td>
+                  <td class="px-4 py-3 text-center text-green-600">19.67%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Tab -->
+      <div id="performance-content" class="tab-content hidden">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">Performance Analysis</h2>
+
+          <!-- Performance Options -->
+          <div class="flex flex-wrap gap-3 mb-6">
+            <button onclick="showPerformance('1day')" id="perf-1day"
+              class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium">1 Day</button>
+            <button onclick="showPerformance('1week')" id="perf-1week"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-300">1
+              Week</button>
+            <button onclick="showPerformance('1month')" id="perf-1month"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-300">1
+              Month</button>
+            <button onclick="showPerformance('3months')" id="perf-3months"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-300">3
+              Months</button>
+          </div>
+
+          <!-- Performance Data -->
+          <div id="performance-data">
+            <div id="1day-data" class="performance-period">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-green-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-green-600">+0.45%</div>
+                  <div class="text-sm text-gray-600">Fund Return</div>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-blue-600">+0.38%</div>
+                  <div class="text-sm text-gray-600">Benchmark Return</div>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-purple-600">+0.07%</div>
+                  <div class="text-sm text-gray-600">Alpha</div>
+                </div>
+              </div>
+            </div>
+
+            <div id="1week-data" class="performance-period hidden">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-green-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-green-600">+1.23%</div>
+                  <div class="text-sm text-gray-600">Fund Return</div>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-blue-600">+1.15%</div>
+                  <div class="text-sm text-gray-600">Benchmark Return</div>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-purple-600">+0.08%</div>
+                  <div class="text-sm text-gray-600">Alpha</div>
+                </div>
+              </div>
+            </div>
+
+            <div id="1month-data" class="performance-period hidden">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-green-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-green-600">+2.45%</div>
+                  <div class="text-sm text-gray-600">Fund Return</div>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-blue-600">+2.28%</div>
+                  <div class="text-sm text-gray-600">Benchmark Return</div>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-purple-600">+0.17%</div>
+                  <div class="text-sm text-gray-600">Alpha</div>
+                </div>
+              </div>
+            </div>
+
+            <div id="3months-data" class="performance-period hidden">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-green-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-green-600">+8.32%</div>
+                  <div class="text-sm text-gray-600">Fund Return</div>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-blue-600">+7.89%</div>
+                  <div class="text-sm text-gray-600">Benchmark Return</div>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-purple-600">+0.43%</div>
+                  <div class="text-sm text-gray-600">Alpha</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Holdings Tab -->
+      <div id="holding-content" class="tab-content hidden">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">Top Holdings</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div>
+                <div class="font-medium text-gray-800">HDFC Bank Ltd</div>
+                <div class="text-sm text-gray-600">Banking</div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">12.45%</div>
+                </div>
+                <div class="w-32 bg-gray-200 rounded-full h-2">
+                  <div class="progress-bar" style="width: 12.45%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div>
+                <div class="font-medium text-gray-800">ICICI Bank Ltd</div>
+                <div class="text-sm text-gray-600">Banking</div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">10.23%</div>
+                </div>
+                <div class="w-32 bg-gray-200 rounded-full h-2">
+                  <div class="progress-bar" style="width: 10.23%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div>
+                <div class="font-medium text-gray-800">Bajaj Finance Ltd</div>
+                <div class="text-sm text-gray-600">NBFC</div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">8.67%</div>
+                </div>
+                <div class="w-32 bg-gray-200 rounded-full h-2">
+                  <div class="progress-bar" style="width: 8.67%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div>
+                <div class="font-medium text-gray-800">Kotak Mahindra Bank Ltd</div>
+                <div class="text-sm text-gray-600">Banking</div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">7.89%</div>
+                </div>
+                <div class="w-32 bg-gray-200 rounded-full h-2">
+                  <div class="progress-bar" style="width: 7.89%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div>
+                <div class="font-medium text-gray-800">Axis Bank Ltd</div>
+                <div class="text-sm text-gray-600">Banking</div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">6.45%</div>
+                </div>
+                <div class="w-32 bg-gray-200 rounded-full h-2">
+                  <div class="progress-bar" style="width: 6.45%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUM Tab -->
+      <div id="aum-content" class="tab-content hidden">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">Assets Under Management (AUM)</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div class="font-medium text-gray-800">January 2024</div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">₹2,450 Cr</div>
+                </div>
+                <div class="w-40 bg-gray-200 rounded-full h-3">
+                  <div class="progress-bar" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div class="font-medium text-gray-800">February 2024</div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">₹2,680 Cr</div>
+                </div>
+                <div class="w-40 bg-gray-200 rounded-full h-3">
+                  <div class="progress-bar" style="width: 93%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div class="font-medium text-gray-800">March 2024</div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">₹2,890 Cr</div>
+                </div>
+                <div class="w-40 bg-gray-200 rounded-full h-3">
+                  <div class="progress-bar" style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div class="font-medium text-gray-800">April 2024</div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">₹2,756 Cr</div>
+                </div>
+                <div class="w-40 bg-gray-200 rounded-full h-3">
+                  <div class="progress-bar" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div class="font-medium text-gray-800">May 2024</div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">₹2,934 Cr</div>
+                </div>
+                <div class="w-40 bg-gray-200 rounded-full h-3">
+                  <div class="progress-bar" style="width: 98%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div class="font-medium text-gray-800">June 2024</div>
+              <div class="flex items-center space-x-4">
+                <div class="text-right">
+                  <div class="font-medium">₹3,125 Cr</div>
+                </div>
+                <div class="w-40 bg-gray-200 rounded-full h-3">
+                  <div class="progress-bar" style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fund Managers Tab -->
+      <div id="managers-content" class="tab-content hidden">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">Fund Managers</h2>
+          <div class="space-y-6">
+            <div class="flex items-center p-6 bg-gray-50 rounded-lg">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-6">
+                <span class="text-blue-600 font-bold text-xl">RK</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-800">Rajesh Kumar</h3>
+                <p class="text-gray-600 mb-2">Senior Fund Manager</p>
+                <p class="text-sm text-gray-500">Experience: 12 years | Managing since: March 2019</p>
+                <p class="text-sm text-gray-500">Specialization: ETFs and Index Funds</p>
+              </div>
+            </div>
+
+            <div class="flex items-center p-6 bg-gray-50 rounded-lg">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mr-6">
+                <span class="text-green-600 font-bold text-xl">AS</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-800">Anita Sharma</h3>
+                <p class="text-gray-600 mb-2">Co-Fund Manager</p>
+                <p class="text-sm text-gray-500">Experience: 8 years | Managing since: June 2020</p>
+                <p class="text-sm text-gray-500">Specialization: Financial Services Sector</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ratios Tab -->
+      <div id="ratios-content" class="tab-content hidden">
+        <div class="section-card p-6">
+          <h2 class="text-xl font-semibold text-gray-800 mb-6">Key Ratios</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Expense Ratio</h3>
+              <p class="text-2xl font-bold text-blue-600">0.35%</p>
+              <p class="text-sm text-gray-500">Annual</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Tracking Error</h3>
+              <p class="text-2xl font-bold text-blue-600">0.12%</p>
+              <p class="text-sm text-gray-500">Annualized</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Beta</h3>
+              <p class="text-2xl font-bold text-blue-600">0.98</p>
+              <p class="text-sm text-gray-500">vs Benchmark</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Sharpe Ratio</h3>
+              <p class="text-2xl font-bold text-blue-600">1.45</p>
+              <p class="text-sm text-gray-500">3 Year</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Alpha</h3>
+              <p class="text-2xl font-bold text-green-600">+0.23%</p>
+              <p class="text-sm text-gray-500">3 Year</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h3 class="font-semibold text-gray-700 mb-2">Standard Deviation</h3>
+              <p class="text-2xl font-bold text-blue-600">18.45%</p>
+              <p class="text-sm text-gray-500">3 Year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching functionality
+    function showTab(tabName) {
+      // Hide all tab contents
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => content.classList.add('hidden'));
+
+      // Remove active class from all tabs
+      const tabs = document.querySelectorAll('[id$="-tab"]');
+      tabs.forEach(tab => {
+        tab.classList.remove('tab-active');
+        tab.classList.add('tab-inactive');
+      });
+
+      // Show selected tab content
+      document.getElementById(tabName + '-content').classList.remove('hidden');
+
+      // Add active class to selected tab
+      document.getElementById(tabName + '-tab').classList.remove('tab-inactive');
+      document.getElementById(tabName + '-tab').classList.add('tab-active');
+
+      // Initialize NAV chart when NAV tab is selected
+      if (tabName === 'nav') {
+        setTimeout(initNavChart, 100);
+      }
+    }
+
+    // Performance period switching
+    function showPerformance(period) {
+      // Hide all performance periods
+      const periods = document.querySelectorAll('.performance-period');
+      periods.forEach(p => p.classList.add('hidden'));
+
+      // Remove active class from all performance buttons
+      const buttons = document.querySelectorAll('[id^="perf-"]');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-gray-200', 'text-gray-700');
+      });
+
+      // Show selected period
+      document.getElementById(period + '-data').classList.remove('hidden');
+
+      // Add active class to selected button
+      const activeBtn = document.getElementById('perf-' + period);
+      activeBtn.classList.remove('bg-gray-200', 'text-gray-700');
+      activeBtn.classList.add('bg-blue-600', 'text-white');
+    }
+
+    // Initialize NAV Chart
+    function initNavChart() {
+      const ctx = document.getElementById('navChart');
+      if (!ctx) return;
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+          datasets: [{
+            label: 'NAV',
+            data: [28.45, 29.12, 30.23, 29.87, 30.45, 30.12, 30.53],
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: {
+                color: '#f3f4f6'
+              }
+            },
+            x: {
+              grid: {
+                color: '#f3f4f6'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function () {
+      // Show NAV tab by default and initialize chart
+      showTab('nav');
+    });
+  </script>
+</body>
+
+</html>
